@@ -88,18 +88,46 @@ var finances = [
 ];
 
 // Total number of months included in the dataset
-console.log(finances.length);
+var totalMonths = finances.length;
+
+console.log(`Total Months: ${totalMonths}`);
+
+
 
 // Net total amount of Profit/Losses over the entire period
-let sum = 0; // variable initialised
+let sum = 0; 
 
 for (var i=0; i < finances.length; i++) {
   sum += finances[i][1];
 }
 
-console.log(sum);
+console.log(`Total Months: $${sum}`);
+
+// Second way
+/*
+let changes = 0;
+finances.forEach(financesItem =>
+  changes += financesItem[1]);
+console.log(changes);
+*/
 
 
+
+// Average of the changes in Profit/Losses over the entire period
+
+var sumChanges = 0;
+
+// difference = finances[2][1] - finances[1][1];
+// console.log(difference);
+
+for (var i=0; i < finances.length; i++) {
+  difference = finances[0][1] - finances[1][1];
+  sumChanges += difference;
+}
+
+var averageChanges = sumChanges / totalMonths - 1;
+
+console.log(`Average Change: ${averageChanges}`);
 
 
 
