@@ -140,7 +140,7 @@ console.log("test profit " + testProfit);
 */
 
 // Loop through array to calculate differences, with if/else to accumulate profit figures vs loss figures
-var ffLengthMinusOne = (financesFigures.length) - 1;
+var ffLengthMinusOne = (financesFigures.length) - 1; // Last value not to be included
 var sumLoss = 0;
 var sumProfit = 0;
 for (var i=0; i < ffLengthMinusOne; i++) {
@@ -158,6 +158,20 @@ console.log(`Average Change: ${sumProfLoss}`);
 
 
 // GREATEST INCREASE IN PROFITS/LOSSES
+var max = financesFigures[0];
+var maxIndex = 0;
+
+// Loop through finance figures to find greater than values, resetting variables when these are found
+for (var i = 0; i < financesFigures.length; i++) {
+  if (financesFigures[i] > max) {
+    maxIndex = i;
+    max = financesFigures[i];
+  }
+}
+
+var maxMonth = finances[maxIndex][0];
+var maxIncrease = financesFigures[maxIndex]-financesFigures[maxIndex-1];
+console.log(`Greatest Increase in Profits/Losses: ${maxMonth} ($${maxIncrease})`);
 
 
 // GREATEST DECREASE IN PROFITS/LOSSES
