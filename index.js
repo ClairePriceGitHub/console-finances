@@ -113,21 +113,70 @@ console.log(changes);
 
 
 
-// Average of the changes in Profit/Losses over the entire period
+    // Average of the changes in Profit/Losses over the entire period
 
-var sumChanges = 0;
 
-// difference = finances[2][1] - finances[1][1];
-// console.log(difference);
 
+
+
+// Create new array with profit/loss figures only
+var financesFigures=[];
 for (var i=0; i < finances.length; i++) {
-  difference = finances[0][1] - finances[1][1];
-  sumChanges += difference;
+  financesFigures.push(finances[i][1]);
 }
+console.log(financesFigures);
 
-var averageChanges = sumChanges / totalMonths - 1;
 
-console.log(`Average Change: ${averageChanges}`);
+// Test array and code
+var test = [24, 12, -10, -6, 2, -8, 6, 18];
+// Profits: 38
+// Losses: -44
+
+console.log("test length " + test.length);
+var testLengthMinusOne = (test.length) - 1;
+console.log(testLengthMinusOne);
+
+var testLoss = 0;
+var testProfit = 0;
+for (var i=0; i < testLengthMinusOne; i++) {
+  var a = test[i];
+  var b = test[i+1];
+  if (a > b) {
+    testLoss += -Math.abs(a-b);
+  } else {
+    testProfit += Math.abs(a-b);
+  }
+}
+console.log("test loss " + testLoss);
+console.log("test profit " + testProfit);
+
+
+
+
+
+
+var ffLengthMinusOne = (financesFigures.length) - 1;
+var sumLoss = 0;
+var sumProfit = 0;
+for (var i=0; i < ffLengthMinusOne; i++) {
+  var a = financesFigures[i];
+  var b = financesFigures[i+1];
+  if (a > b) {
+    sumLoss += -Math.abs(a-b);
+  } else {
+    sumProfit += Math.abs(a-b);
+  }
+}
+console.log("test loss " + testLoss);
+console.log("test profit " + testProfit);
+
+
+
+
+
+
+
+
 
 
 
