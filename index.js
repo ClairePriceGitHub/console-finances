@@ -87,20 +87,16 @@ var finances = [
   ['Feb-2017', 671099],
 ];
 
-// Total number of months included in the dataset
+// TOTAL NUMBER OF MONTH INCLUDED IN THE DATASET
 var totalMonths = finances.length;
-
 console.log(`Total Months: ${totalMonths}`);
 
 
-
-// Net total amount of Profit/Losses over the entire period
+// NET TOTAL AMOUNT OF THE PROFIT/LOSSES OVER THE ENTIRE PERIOD
 let sum = 0; 
-
 for (var i=0; i < finances.length; i++) {
   sum += finances[i][1];
 }
-
 console.log(`Total Months: $${sum}`);
 
 // Second way
@@ -112,13 +108,7 @@ console.log(changes);
 */
 
 
-
-    // Average of the changes in Profit/Losses over the entire period
-
-
-
-
-
+// AVERAGE OF THE CHANGES ON THE PROFIT/LOSSES OVER THE ENTIRE PERIOD
 // Create new array with profit/loss figures only
 var financesFigures=[];
 for (var i=0; i < finances.length; i++) {
@@ -126,16 +116,14 @@ for (var i=0; i < finances.length; i++) {
 }
 console.log(financesFigures);
 
-
 // Test array and code
+/*
 var test = [24, 12, -10, -6, 2, -8, 6, 18];
 // Profits: 38
 // Losses: -44
-
 console.log("test length " + test.length);
 var testLengthMinusOne = (test.length) - 1;
 console.log(testLengthMinusOne);
-
 var testLoss = 0;
 var testProfit = 0;
 for (var i=0; i < testLengthMinusOne; i++) {
@@ -149,12 +137,9 @@ for (var i=0; i < testLengthMinusOne; i++) {
 }
 console.log("test loss " + testLoss);
 console.log("test profit " + testProfit);
+*/
 
-
-
-
-
-
+// Loop through array to calculate differences, with if/else to accumulate profit figures vs loss figures
 var ffLengthMinusOne = (financesFigures.length) - 1;
 var sumLoss = 0;
 var sumProfit = 0;
@@ -167,8 +152,15 @@ for (var i=0; i < ffLengthMinusOne; i++) {
     sumProfit += Math.abs(a-b);
   }
 }
-console.log("test loss " + testLoss);
-console.log("test profit " + testProfit);
+// Calculate average to two decimal places
+var sumProfLoss = ((sumLoss + sumProfit) / ffLengthMinusOne).toFixed(2);
+console.log(`Average Change: ${sumProfLoss}`);
+
+
+// GREATEST INCREASE IN PROFITS/LOSSES
+
+
+// GREATEST DECREASE IN PROFITS/LOSSES
 
 
 
