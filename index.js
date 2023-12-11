@@ -87,17 +87,22 @@ var finances = [
   ['Feb-2017', 671099],
 ];
 
-// TOTAL NUMBER OF MONTH INCLUDED IN THE DATASET
+console.log("Financial Analysis");
+
+console.log("----------------------------");
+
+
+// ITEM-1 TOTAL NUMBER OF MONTH INCLUDED IN THE DATASET
 var totalMonths = finances.length;
 console.log(`Total Months: ${totalMonths}`);
 
 
-// NET TOTAL AMOUNT OF THE PROFIT/LOSSES OVER THE ENTIRE PERIOD
+// ITEM-2 NET TOTAL AMOUNT OF THE PROFIT/LOSSES OVER THE ENTIRE PERIOD
 let sum = 0; 
 for (var i=0; i < finances.length; i++) {
   sum += finances[i][1];
 }
-console.log(`Total Months: $${sum}`);
+console.log(`Total: $${sum}`);
 
 // Second way
 /*
@@ -108,13 +113,12 @@ console.log(changes);
 */
 
 
-// AVERAGE OF THE CHANGES ON THE PROFIT/LOSSES OVER THE ENTIRE PERIOD
+// ITEM-3 AVERAGE OF THE CHANGES ON THE PROFIT/LOSSES OVER THE ENTIRE PERIOD
 // Create new array with profit/loss figures only
 var financesFigures=[];
 for (var i=0; i < finances.length; i++) {
   financesFigures.push(finances[i][1]);
 }
-console.log(financesFigures);
 
 // Test array and code
 /*
@@ -152,12 +156,13 @@ for (var i=0; i < ffLengthMinusOne; i++) {
     sumProfit += Math.abs(a-b);
   }
 }
+
 // Calculate average to two decimal places
 var sumProfLoss = ((sumLoss + sumProfit) / ffLengthMinusOne).toFixed(2);
 console.log(`Average Change: ${sumProfLoss}`);
 
 
-// GREATEST INCREASE IN PROFITS/LOSSES
+// ITEM-4 GREATEST INCREASE IN PROFITS/LOSSES
 var max = financesFigures[0];
 var maxIndex = 0;
 
@@ -170,11 +175,32 @@ for (var i = 0; i < financesFigures.length; i++) {
 }
 
 var maxMonth = finances[maxIndex][0];
-var maxIncrease = financesFigures[maxIndex]-financesFigures[maxIndex-1];
+var maxIncrease = max-financesFigures[maxIndex-1];
 console.log(`Greatest Increase in Profits/Losses: ${maxMonth} ($${maxIncrease})`);
 
 
-// GREATEST DECREASE IN PROFITS/LOSSES
+// ITEM-5 GREATEST DECREASE IN PROFITS/LOSSES
+var min = financesFigures[0];
+var minIndex = 0;
+
+// Loop through finance figures to find less than values, resetting variables when these are found
+for (var i = 0; i < financesFigures.length; i++) {
+  if (financesFigures[i] < min) {
+    minIndex = i;  
+    min = financesFigures[i];  
+  }
+}
+
+var maxMonthDecrease = finances[minIndex][0];
+var maxDecrease = min-(financesFigures[minIndex-1]);
+console.log(`Greatest Decrease in Profits/Losses: ${maxMonthDecrease} ($${maxDecrease})`);
+
+
+
+
+
+
+
 
 
 
