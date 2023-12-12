@@ -16,10 +16,12 @@ Open the index.html file in the browser and open the developer console to view a
 
 https://clairepricegithub.github.io/console-finances/
 
+![screenshot](images/screenshot.png)
+
 ## Credits
 
-index.html lines 200-202: <br>
-Koishigawa, Kris. 2020, September 8. *How to Use HTML to Open a Link in a New Tab*. freeCodeCamp. https://www.freecodecamp.org/news/how-to-use-html-to-open-link-in-new-tab/ 
+index.js lines 167-186: <br>
+Stack Overflow. 2012, July 2. *Return index of greatest value in an array*. https://stackoverflow.com/questions/11301438/return-index-of-greatest-value-in-an-array
 
 ## License
 
