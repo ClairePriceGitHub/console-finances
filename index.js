@@ -163,37 +163,45 @@ console.log(`Average Change: ${sumProfLoss}`);
 
 
 // ITEM-4 GREATEST INCREASE IN PROFITS/LOSSES
-var max = financesFigures[0];
-var maxIndex = 0;
-
-// Loop through finance figures to find greater than values, resetting variables when these are found
-for (var i = 0; i < financesFigures.length; i++) {
-  if (financesFigures[i] > max) {
-    maxIndex = i;
-    max = financesFigures[i];
+// New array to calculate differences (profit/loss) between monthly finance figures
+var figuresDifference = [];
+for (var i=0; i < financesFigures.length; i++) {
+  var a = financesFigures[i];
+  var b = financesFigures[i+1];
+  if (a > b) {
+    figuresDifference.push(-Math.abs(a-b));
+  } else {
+    figuresDifference.push(b-a);
   }
 }
 
-var maxMonth = finances[maxIndex][0];
-var maxIncrease = max-financesFigures[maxIndex-1];
-console.log(`Greatest Increase in Profits/Losses: ${maxMonth} ($${maxIncrease})`);
+// Loop through figures difference, resetting variables during iteration to find greatest value
+var maxProfit = figuresDifference[0];
+var maxProfitIndex = 0;
+for (var i = 0; i < figuresDifference.length; i++) {
+  if (figuresDifference[i] > maxProfit) {
+    maxProfitIndex = i;
+    maxProfit = figuresDifference[i];
+  }
+}
+// Insert result index to finances index (+1 to get finances index not difference index)
+var maxMonthProfit = finances[maxProfitIndex+1][0];  
+console.log(`Greatest Increase in Profits/Losses: ${maxMonthProfit} ($${maxProfit})`);
 
 
 // ITEM-5 GREATEST DECREASE IN PROFITS/LOSSES
-var min = financesFigures[0];
-var minIndex = 0;
-
-// Loop through finance figures to find less than values, resetting variables when these are found
-for (var i = 0; i < financesFigures.length; i++) {
-  if (financesFigures[i] < min) {
-    minIndex = i;  
-    min = financesFigures[i];  
+// Loop through figures difference, resetting variables during iteration to find least value
+var maxLoss = figuresDifference[0];
+var maxLossIndex = 0;
+for (var i = 1; i < figuresDifference.length; i++) {
+  if (figuresDifference[i] < maxLoss) {
+    maxLossIndex = i;  
+    maxLoss = figuresDifference[i];  
   }
 }
-
-var maxMonthDecrease = finances[minIndex][0];
-var maxDecrease = min-(financesFigures[minIndex-1]);
-console.log(`Greatest Decrease in Profits/Losses: ${maxMonthDecrease} ($${maxDecrease})`);
+// Insert result index to finances index (+1 to get finances index not difference index)
+var maxMonthLoss = finances[maxLossIndex+1][0]; 
+console.log(`Greatest Decrease in Profits/Losses: ${maxMonthLoss} ($${maxLoss})`);
 
 
 

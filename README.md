@@ -18,6 +18,9 @@ https://clairepricegithub.github.io/console-finances/
 
 ## Credits
 
+index.html lines 200-202: <br>
+Koishigawa, Kris. 2020, September 8. *How to Use HTML to Open a Link in a New Tab*. freeCodeCamp. https://www.freecodecamp.org/news/how-to-use-html-to-open-link-in-new-tab/ 
+
 ## License
 
 Please refer to the LICENSE in the repo
