@@ -12,7 +12,7 @@ N/A
 
 ## Usage
 
-Open the index.html file in the browser and open the developer console to view analysis results
+Open in the browser and open the developer console to view analysis results
 
 https://clairepricegithub.github.io/console-finances/
 
